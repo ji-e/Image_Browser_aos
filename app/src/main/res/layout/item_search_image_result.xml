@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchImageItem"
+            type="com.jieun.imagebrowser.model.data.SearchImageData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:clipChildren="true"
+        android:paddingBottom="@dimen/dimen_20dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/item_search_image_result_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_00dp"
+            android:layout_margin="@dimen/dimen_08dp"
+            app:cardElevation="@dimen/dimen_05dp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:err="@{@drawable/ic_empty_img}"
+                app:imgUrl="@{searchImageItem.download_url}" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/item_search_image_result_tv_author"
+            style="@style/Font_16_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_08dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="@{@string/search_image_result_author +&quot;: &quot;+ searchImageItem.author}"
+            android:textStyle="bold"
+            android:lines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_search_image_result_cardview"
+            tools:text="@string/search_image_result_author" />
+
+
+        <TextView
+            android:id="@+id/item_search_image_result_tv_width"
+            style="@style/Font_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_08dp"
+            android:ellipsize="end"
+            android:text="@{@string/search_image_result_width+&quot;: &quot;+searchImageItem.width.toString()}"
+            app:layout_constraintEnd_toStartOf="@id/item_search_image_result_tv_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_search_image_result_tv_author"
+            tools:text="width: 1000" />
+
+        <TextView
+            android:id="@+id/item_search_image_result_tv_height"
+            style="@style/Font_16_black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_08dp"
+            android:ellipsize="end"
+            android:text="@{@string/search_image_result_height+&quot;: &quot;+searchImageItem.height.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_search_image_result_tv_width"
+            app:layout_constraintTop_toBottomOf="@id/item_search_image_result_tv_author"
+            tools:text="height: 1000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

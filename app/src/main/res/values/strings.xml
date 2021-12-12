@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Image Browser</string>
+    <string name="search_image_result_author">author</string>
+    <string name="search_image_result_width">width</string>
+    <string name="search_image_result_height">height</string>
+    <string name="search_image_result_detail_origin">Origin</string>
+    <string name="search_image_result_detail_grayscale">Grayscale</string>
+    <string name="search_image_result_detail_blur">Blur</string>
+</resources>

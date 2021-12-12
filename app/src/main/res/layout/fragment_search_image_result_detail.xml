@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="searchImageResultDetailVM"
+            type="com.jieun.imagebrowser.viewmodel.SearchImageViewModel" />
+
+        <variable
+            name="rootView"
+            type="com.jieun.imagebrowser.view.searchImage.SearchImageResultDetailFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/search_image_result_detail_img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:padding="@dimen/dimen_20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />
+
+        <ImageView
+            android:id="@+id/search_image_result_detail_img"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            app:err="@{@drawable/ic_empty_img}"
+            app:imgUrl="@{searchImageResultDetailVM.liveSearchImageResultDetailImg}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_image_result_detail_img_back" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/search_image_result_detail_img_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/search_image_result_detail_img_back">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/search_image_result_detail_rb_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_r16_selector"
+                android:button="@null"
+                android:checked="true"
+                android:paddingHorizontal="@dimen/dimen_10dp"
+                android:paddingVertical="@dimen/dimen_05dp"
+                android:text="@string/search_image_result_detail_origin"
+                android:textAppearance="@style/Font_16_black"
+                app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/search_image_result_detail_rb_blur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:background="@drawable/btn_r16_selector"
+                android:button="@null"
+                android:paddingHorizontal="@dimen/dimen_10dp"
+                android:paddingVertical="@dimen/dimen_05dp"
+                android:text="@string/search_image_result_detail_blur"
+                android:textAppearance="@style/Font_16_black"
+                app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/search_image_result_detail_rb_grayscale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_10dp"
+                android:background="@drawable/btn_r16_selector"
+                android:button="@null"
+                android:paddingHorizontal="@dimen/dimen_10dp"
+                android:paddingVertical="@dimen/dimen_05dp"
+                android:text="@string/search_image_result_detail_grayscale"
+                android:textAppearance="@style/Font_16_black"
+                app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />
+        </RadioGroup>
+        <!--        <TextView-->
+        <!--           -->
+        <!--            style="@style/Font_16_black"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="@dimen/dimen_10dp"-->
+        <!--            android:background="@drawable/shape_rectangle_r16_s_gray_666666"-->
+        <!--            android:paddingHorizontal="@dimen/dimen_10dp"-->
+        <!--            android:paddingVertical="@dimen/dimen_05dp"-->
+        <!--            android:text="@string/search_image_result_detail_blur"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/search_image_result_detail_img_back"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/search_image_result_detail_tv_grayscale"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/search_image_result_detail_img_back"-->
+        <!--            app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/search_image_result_detail_tv_grayscale"-->
+        <!--            style="@style/Font_16_black"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="@dimen/dimen_10dp"-->
+        <!--            android:background="@drawable/shape_rectangle_r16_s_gray_666666"-->
+        <!--            android:paddingHorizontal="@dimen/dimen_10dp"-->
+        <!--            android:paddingVertical="@dimen/dimen_05dp"-->
+        <!--            android:text="@string/search_image_result_detail_grayscale"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/search_image_result_detail_img_back"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/search_image_result_detail_img_back"-->
+        <!--            app:onSafeClick="@{rootView::onClickSearchImageResultDetailFragment}" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
